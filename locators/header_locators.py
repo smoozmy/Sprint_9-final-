@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class MenuLocators:
+class HeaderLocators:
     CREATE_ACCOUNT_BUTTON = (By.XPATH, "//a[@href='/signup']")
     LOGIN_BUTTON = (By.XPATH, "//a[@href='/signin']")
     LOGOUT_BUTTON = (By.XPATH, "//a[text()='Выход']")
