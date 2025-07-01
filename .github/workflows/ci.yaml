@@ -1,15 +1,30 @@
-name: CI Pipeline
+name: Selenoid Tests
+
 on:
   push:
-    branches:
-      - develop
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
-  run-selenoid-tests:
+  run-tests:
     runs-on: ubuntu-latest
+    services:
+      selenoid:
+        image: aerokube/selenoid
+        ports:
+          - 4444:4444
+        volumes:
+          - ./config.json:/etc/selenoid/config.json
+          - /var/run/docker.sock:/var/run/docker.sock
+        options: --privileged
+
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Pull selenoid image
-        run: docker pull selenoid/chrome:latest
-      - name: Run tests in docker
-        run: docker compose up --build --exit-code-from autotests
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Docker
+      run: docker pull selenoid/chrome:latest
+
+    - name: Run tests
+      run: docker-compose up --build --exit-code-from autotests

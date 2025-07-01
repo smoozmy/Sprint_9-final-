@@ -1,5 +1,8 @@
+import os
+
+
 class Data:
-    BASE_URL = "https://foodgram-frontend-1.prakticum-team.ru/"
+    BASE_URL = os.getenv('BASE_URL', "https://foodgram-frontend-1.prakticum-team.ru/")
     PASSWORD = "parol123"
     EAT_TAGS = ["breakfast", "lunch", "dinner"]
 
