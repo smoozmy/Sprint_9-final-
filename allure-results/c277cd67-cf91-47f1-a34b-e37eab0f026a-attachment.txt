@@ -1,0 +1,1 @@
+{'first_name': 'Tswngbvpzyqvpfa', 'last_name': 'Bhyjsawuffifdic', 'username': 'userxtmybnvaeawlzo', 'email': 'test-tprnhucwsv@email.ru', 'password': 'parol123'}
