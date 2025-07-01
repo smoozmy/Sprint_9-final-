@@ -1,0 +1,1 @@
+CHROME >= 115, using mac-arm64 as architecture identifier

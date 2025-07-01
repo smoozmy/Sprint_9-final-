@@ -25,3 +25,4 @@ class Generators:
             "password": Data.PASSWORD,
         }
 
+

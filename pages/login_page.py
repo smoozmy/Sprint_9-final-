@@ -17,3 +17,4 @@ class LoginPage(BasePage):
         self.wait_element_visible(HeaderLocators.LOGOUT_BUTTON)
         url = self.driver.current_url
         assert url == 'https://foodgram-frontend-1.prakticum-team.ru/recipes'
+        return self

@@ -6,4 +6,4 @@ class HeaderLocators:
     LOGIN_BUTTON = (By.XPATH, "//a[@href='/signin']")
     LOGOUT_BUTTON = (By.XPATH, "//a[text()='Выход']")
     RECIPES_BUTTON = (By.XPATH, "//a[contains(text(),'Рецепты')]")
-    CREATE_RECIPE_BUTTON = (By.XPATH, "//a[@href='/recipes/create']")
+    CREATE_RECIPE_BUTTON = (By.XPATH, "//a[contains(text(),'Создать рецепт')]")

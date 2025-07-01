@@ -14,4 +14,4 @@ class CreateRecipeLocators:
     DESCRIPTION  = (By.XPATH,"//textarea")
     UPLOAD_PHOTO_INPUT = (By.XPATH,"//input[starts-with(@class, 'styles_fileInput')]")
     UPLOAD_PHOTO_BUTTON = (By.XPATH,"//div[starts-with(@class, 'styles_button')]")
-    CREATE_RECIPE_BUTTON = (By.XPATH,"//button[starts-with(@class, 'style_button')]")
+    CREATE_RECIPE_BUTTON = (By.XPATH,"//button[contains(text(),'Создать рецепт')]")
