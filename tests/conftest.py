@@ -1,22 +1,41 @@
 import pytest
-import chromedriver_autoinstaller
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from src.data import Data
 from pages.register_page import RegisterPage
 from src.generators import Generators
 from pages.recipes_page import RecipesPage
+import os
 
 
 @pytest.fixture()
 def driver():
-    chromedriver_autoinstaller.install()
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    driver = webdriver.Chrome(options=options)
+    if os.getenv('IN_CONTAINER') == 'true':
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.set_capability("browserName", "chrome")
+        chrome_options.set_capability("browserVersion", "124.0")
+        chrome_options.set_capability("selenoid:options", {
+            "enableVNC": True,
+            "enableVideo": False
+        })
+        driver = webdriver.Remote(
+            command_executor='http://selenoid:4444/wd/hub',
+            options=chrome_options
+        )
+    else:
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        from webdriver_manager.chrome import ChromeDriverManager
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=service, options=options)
+
     driver.maximize_window()
     driver.get(Data.BASE_URL)
     yield driver
     driver.quit()
+
 
 
 @pytest.fixture(scope='function')
