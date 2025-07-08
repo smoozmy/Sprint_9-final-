@@ -27,3 +27,12 @@ class BasePage:
     def format_locator(self, locator, text):
         new_locator = (locator[0], locator[1].format(text))
         return new_locator
+
+    def wait_until_clickable(self, locator, timeout=10):
+        return WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
+
+    def scroll_to_element(self, element):
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def click_with_js(self, element):
+        self.driver.execute_script("arguments[0].click();", element)

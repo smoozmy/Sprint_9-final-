@@ -30,16 +30,13 @@ class CreateRecipePage(BasePage):
             raise Exception("Кнопка создания рецепта неактивна")
 
         if not button.is_displayed():
-            self.driver.execute_script("arguments[0].scrollIntoView();", button)
-
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable(CreateRecipeLocators.CREATE_RECIPE_BUTTON)
-        )
+            self.scroll_to_element(button)
+            self.wait_until_clickable(CreateRecipeLocators.CREATE_RECIPE_BUTTON)
 
         try:
             button.click()
         except:
-            self.driver.execute_script("arguments[0].click();", button)
+            self.click_with_js(CreateRecipeLocators.CREATE_RECIPE_BUTTON)
 
         return RecipePage(self.driver)
 
