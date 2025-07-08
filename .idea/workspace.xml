@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082dd997-d8ee-4b17-ba09-77cb11c1b7c8" name="Changes" comment="" />
+    <list default="true" id="082dd997-d8ee-4b17-ba09-77cb11c1b7c8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/register_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/register_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_recipes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_recipes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_register.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +62,7 @@
       <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for tests.test_register.TestRegister.test_registration">
+  <component name="RunManager" selected="Python tests.Python tests for tests.test_recipes.TestRecipes.test_recipes">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml" />
       <method v="2" />
@@ -130,9 +138,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for tests.test_register.TestRegister.test_registration" />
-        <item itemvalue="Python tests.Python tests for tests.test_login.TestLogin.test_login" />
         <item itemvalue="Python tests.Python tests for tests.test_recipes.TestRecipes.test_recipes" />
+        <item itemvalue="Python tests.Python tests for tests.test_login.TestLogin.test_login" />
+        <item itemvalue="Python tests.Python tests for tests.test_register.TestRegister.test_registration" />
         <item itemvalue="Python tests.Python tests for tests.test_login.TestLogin" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>

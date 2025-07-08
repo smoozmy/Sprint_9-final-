@@ -9,6 +9,7 @@ class LoginPage(BasePage):
 
     @allure.step("Заполнение формы логина")
     def fill_form_and_login(self, user) :
+        self.wait_element_has_text(LoginPageLocators.TITLE, "Войти на сайт")
         self.wait_element_visible(LoginPageLocators.EMAIL_INPUT).send_keys(user["email"])
         self.wait_element_visible(LoginPageLocators.PASSWORD_INPUT).send_keys(user["password"])
         self.wait_element_visible(LoginPageLocators.LOGIN_BUTTON).click()

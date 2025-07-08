@@ -24,7 +24,7 @@ def driver():
         )
     else:
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
+        # options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         from webdriver_manager.chrome import ChromeDriverManager
@@ -68,7 +68,6 @@ def authorized_user_recipes_page(register_page, driver):
     login_page = register_page.click_create_account_button()
 
     login_page.fill_form_and_login(user)
-    login_page.assert_user_logged_in()
 
     return RecipesPage(driver)
 

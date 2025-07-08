@@ -10,7 +10,7 @@ class TestRecipes:
 
         create_recipe_page = recipes_page.open_new_recipe()
 
-        recipe = Data.get_recipe()
+        recipe = Data.RECIPE
         create_recipe_page.fill_form(recipe)
         recipe_page = create_recipe_page.submit_form()
 
