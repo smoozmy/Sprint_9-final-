@@ -4,6 +4,7 @@ from pathlib import Path
 import allure
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import StaleElementReferenceException
 
 from src.data import Data
 from locators.create_recipe_locators import CreateRecipeLocators
@@ -51,11 +52,17 @@ class CreateRecipePage(BasePage):
     def type_ingredient_name(self, name):
         self.wait_element_visible(CreateRecipeLocators.INGREDIENT_NAME).send_keys(name)
         self.wait_element_visible(CreateRecipeLocators.INGREDIENT_LIST)
+
         elements = self.driver.find_elements(*CreateRecipeLocators.INGREDIENT_LIST)
-        for element in elements:
-            if element.text == name:
-                element.click()
+        for _ in range(3):
+            try:
+                for element in elements:
+                    if element.text == name:
+                        element.click()
+                        return
                 break
+            except StaleElementReferenceException:
+                elements = self.driver.find_elements(*CreateRecipeLocators.INGREDIENT_LIST)
 
 
     def type_ingredient_amount(self, amount):
