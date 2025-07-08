@@ -54,7 +54,7 @@
       <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for tests.test_login.TestLogin.test_login">
+  <component name="RunManager" selected="Python tests.Python tests for tests.test_register.TestRegister.test_registration">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml" />
       <method v="2" />
@@ -130,9 +130,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for tests.test_register.TestRegister.test_registration" />
         <item itemvalue="Python tests.Python tests for tests.test_login.TestLogin.test_login" />
         <item itemvalue="Python tests.Python tests for tests.test_recipes.TestRecipes.test_recipes" />
-        <item itemvalue="Python tests.Python tests for tests.test_register.TestRegister.test_registration" />
         <item itemvalue="Python tests.Python tests for tests.test_login.TestLogin" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>

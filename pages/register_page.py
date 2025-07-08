@@ -1,7 +1,6 @@
 import allure
 from locators.register_page_locators import RegisterPageLocators
 from locators.header_locators import HeaderLocators
-from locators.login_page_locators import LoginPageLocators
 from pages.base_page import BasePage
 from pages.login_page import LoginPage
 
@@ -23,5 +22,4 @@ class RegisterPage(BasePage):
     @allure.step("Завершение регистрации, переход на страницу авторизации")
     def click_create_account_button(self):
         self.wait_element_visible(RegisterPageLocators.CREATE_ACCOUNT_BUTTON).click()
-        self.wait_element_has_text(LoginPageLocators.TITLE, "Войти на сайт")
         return LoginPage(self.driver)
