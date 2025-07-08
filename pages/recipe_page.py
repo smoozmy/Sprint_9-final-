@@ -19,7 +19,7 @@ class RecipePage(BasePage):
                 error_msg=f"Ингредиент '{key}' не загрузился вовремя"
             )
 
-        actual_ingredients = self.driver.find_elements(*RecipePageLocators.INGREDIENTS)
+        actual_ingredients = self.find_elements(RecipePageLocators.INGREDIENTS)
         ingredients = [
             el.text.replace('–', '-').replace('—', '-').strip()
             for el in actual_ingredients

@@ -17,4 +17,4 @@ class LoginPage(BasePage):
     @allure.step("Проверка успешного входа")
     def assert_user_logged_in(self):
         self.wait_element_visible(HeaderLocators.LOGOUT_BUTTON)
-        assert self.driver.current_url == Urls.RECIPES
+        assert self.get_current_url() == Urls.RECIPES

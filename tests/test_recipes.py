@@ -1,6 +1,4 @@
 import allure
-
-from pages.recipe_page import RecipePage
 from src.data import Data
 
 @allure.epic('Рецепты')

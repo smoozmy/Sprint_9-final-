@@ -1,8 +1,6 @@
-
 from pathlib import Path
 import allure
 from selenium.common.exceptions import StaleElementReferenceException
-
 from src.data import Data
 from locators.create_recipe_locators import CreateRecipeLocators
 from pages.base_page import BasePage
@@ -53,7 +51,7 @@ class CreateRecipePage(BasePage):
         self.wait_element_visible(CreateRecipeLocators.INGREDIENT_NAME).send_keys(name)
         self.wait_element_visible(CreateRecipeLocators.INGREDIENT_LIST)
 
-        elements = self.driver.find_elements(*CreateRecipeLocators.INGREDIENT_LIST)
+        elements = self.find_elements(CreateRecipeLocators.INGREDIENT_LIST)
         for _ in range(3):
             try:
                 for element in elements:
@@ -62,7 +60,7 @@ class CreateRecipePage(BasePage):
                         return
                 break
             except StaleElementReferenceException:
-                elements = self.driver.find_elements(*CreateRecipeLocators.INGREDIENT_LIST)
+                elements = self.find_elements(CreateRecipeLocators.INGREDIENT_LIST)
 
 
     def type_ingredient_amount(self, amount):
@@ -81,7 +79,7 @@ class CreateRecipePage(BasePage):
     @allure.step("Добавить фото к рецепту")
     def __add_photo__(self, photo):
         file_path = str(Path(__file__).parent.parent) + "/assets/" + photo
-        self.driver.find_element(*CreateRecipeLocators.UPLOAD_PHOTO_INPUT).send_keys(file_path)
+        self.find_element(CreateRecipeLocators.UPLOAD_PHOTO_INPUT).send_keys(file_path)
 
 
     def __get_tag_by_name__(self, tag: str):

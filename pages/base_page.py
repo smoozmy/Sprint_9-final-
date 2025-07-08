@@ -43,3 +43,12 @@ class BasePage:
             return wait.until(condition_function)
         except Exception as e:
             raise AssertionError(f"{error_msg}: {e}")
+
+    def find_element(self, locator):
+        return self.driver.find_element(*locator)
+
+    def find_elements(self, locator):
+        return self.driver.find_elements(*locator)
+
+    def get_current_url(self):
+        return self.driver.current_url
