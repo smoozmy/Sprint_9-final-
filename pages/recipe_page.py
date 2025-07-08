@@ -25,5 +25,9 @@ class RecipePage(BasePage):
 
         assert actual_name == expected_recipe["name"]
         assert actual_description == expected_recipe["description"]
+
+        print("🧪🧪🧪🧪DEBUG:", ingredients)
+        print("🧪🧪🧪🧪Expected:", [f"{k} - {v}" for k, v in expected_recipe["ingredients"].items()])
+
         for key, value in expected_recipe["ingredients"].items():
             assert Helpers.is_substr_in_list(f"{key} - {value}", ingredients)
