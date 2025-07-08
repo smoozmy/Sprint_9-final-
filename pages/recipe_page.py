@@ -12,10 +12,12 @@ class RecipePage(BasePage):
         actual_name = self.wait_element_visible(RecipePageLocators.NAME).text
         actual_description = self.wait_element_visible(RecipePageLocators.DESCRIPTION).text
 
-        self.wait_until(
-            lambda d: len(d.find_elements(*RecipePageLocators.INGREDIENTS)) >= len(expected_recipe["ingredients"]),
-            error_msg="Ингредиенты не загрузились вовремя"
-        )
+        for key in expected_recipe["ingredients"].keys():
+            self.wait_until(
+                lambda d: any(key in el.text for el in d.find_elements(*RecipePageLocators.INGREDIENTS)),
+                timeout=10,
+                error_msg=f"Ингредиент '{key}' не загрузился вовремя"
+            )
 
         actual_ingredients = self.driver.find_elements(*RecipePageLocators.INGREDIENTS)
         ingredients = [
@@ -25,9 +27,6 @@ class RecipePage(BasePage):
 
         assert actual_name == expected_recipe["name"]
         assert actual_description == expected_recipe["description"]
-
-        print("🧪🧪🧪🧪DEBUG:", ingredients)
-        print("🧪🧪🧪🧪Expected:", [f"{k} - {v}" for k, v in expected_recipe["ingredients"].items()])
 
         for key, value in expected_recipe["ingredients"].items():
             assert Helpers.is_substr_in_list(f"{key} - {value}", ingredients)
