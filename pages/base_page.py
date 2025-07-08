@@ -36,3 +36,10 @@ class BasePage:
 
     def click_with_js(self, element):
         self.driver.execute_script("arguments[0].click();", element)
+
+    def wait_until(self, condition_function, timeout=None, error_msg="Состояние не выполнено"):
+        wait = WebDriverWait(self.driver, timeout or self.timeout)
+        try:
+            return wait.until(condition_function)
+        except Exception as e:
+            raise AssertionError(f"{error_msg}: {e}")

@@ -11,10 +11,18 @@ class RecipePage(BasePage):
     def assert_recipe_created(self, expected_recipe):
         actual_name = self.wait_element_visible(RecipePageLocators.NAME).text
         actual_description = self.wait_element_visible(RecipePageLocators.DESCRIPTION).text
+
+        self.wait_until(
+            lambda d: len(d.find_elements(*RecipePageLocators.INGREDIENTS)) >= len(expected_recipe["ingredients"]),
+            error_msg="Ингредиенты не загрузились вовремя"
+        )
+
         actual_ingredients = self.driver.find_elements(*RecipePageLocators.INGREDIENTS)
-        ingredients = []
-        for ingredient in actual_ingredients:
-            ingredients.append(ingredient.text)
+        ingredients = [
+            el.text.replace('–', '-').replace('—', '-').strip()
+            for el in actual_ingredients
+        ]
+
         assert actual_name == expected_recipe["name"]
         assert actual_description == expected_recipe["description"]
         for key, value in expected_recipe["ingredients"].items():
