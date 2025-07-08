@@ -20,7 +20,7 @@ class CreateRecipePage(BasePage):
         self.wait_element_visible(CreateRecipeLocators.COOK_TIME).send_keys(recipe["cook_time"])
         self.wait_element_visible(CreateRecipeLocators.DESCRIPTION).send_keys(recipe["description"])
         self.__add_photo__(recipe["photo"])
-        time.sleep(2)
+        self.wait_element_visible(CreateRecipeLocators.PHOTO_PREVIEW)
 
     @allure.step("Завершение создания рецепта")
     def submit_form(self):

@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="082dd997-d8ee-4b17-ba09-77cb11c1b7c8" name="Changes" comment="" />
+    <list default="true" id="082dd997-d8ee-4b17-ba09-77cb11c1b7c8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locators/create_recipe_locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/locators/create_recipe_locators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/create_recipe_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/create_recipe_page.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +45,7 @@
     "Python tests.Python tests for tests.test_recipes.TestRecipes.executor": "Run",
     "Python tests.Python tests for tests.test_recipes.TestRecipes.test_recipes.executor": "Run",
     "Python tests.Python tests for tests.test_register.TestRegister.executor": "Run",
+    "Python tests.Python tests for tests.test_register.TestRegister.test_registration.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "develop",
     "last_opened_file_path": "/Users/krapivin/Documents/Python/Sprint_9 (final)"
@@ -53,7 +59,7 @@
       <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for tests.test_login.TestLogin.test_login">
+  <component name="RunManager" selected="Python tests.Python tests for tests.test_recipes.TestRecipes.test_recipes">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml" />
       <method v="2" />
@@ -97,21 +103,6 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.test_recipes.TestRecipes" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Sprint_9 (final)" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.test_recipes.TestRecipes&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Python tests for tests.test_recipes.TestRecipes.test_recipes" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Sprint_9 (final)" />
       <option name="ENV_FILES" value="" />
@@ -127,13 +118,28 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for tests.test_register.TestRegister.test_registration" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Sprint_9 (final)" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_register.TestRegister.test_registration&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for tests.test_login.TestLogin.test_login" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Python tests.Python tests for tests.test_recipes.TestRecipes.test_recipes" />
-        <item itemvalue="Python tests.Python tests for tests.test_recipes.TestRecipes" />
+        <item itemvalue="Python tests.Python tests for tests.test_register.TestRegister.test_registration" />
+        <item itemvalue="Python tests.Python tests for tests.test_login.TestLogin.test_login" />
         <item itemvalue="Python tests.Python tests for tests.test_login.TestLogin" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
