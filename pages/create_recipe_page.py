@@ -1,9 +1,6 @@
-import time
-from pathlib import Path
 
+from pathlib import Path
 import allure
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException
 
 from src.data import Data
@@ -13,6 +10,11 @@ from pages.recipe_page import RecipePage
 
 
 class CreateRecipePage(BasePage):
+
+    @allure.step('Переход к странице рецепта')
+    def to_recipe_page(self):
+        return RecipePage(self.driver)
+
     @allure.step('Заполнение формы рецепта')
     def fill_form(self, recipe):
         self.wait_element_visible(CreateRecipeLocators.NAME).send_keys(recipe["name"])
@@ -38,8 +40,6 @@ class CreateRecipePage(BasePage):
             button.click()
         except:
             self.click_with_js(CreateRecipeLocators.CREATE_RECIPE_BUTTON)
-
-        return RecipePage(self.driver)
 
     @allure.step("Добавить ингредиенты")
     def __add_ingredients(self, ingredients):
