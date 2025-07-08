@@ -1,0 +1,31 @@
+name: Selenoid Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Compose
+      run: |
+        sudo curl -L "https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+        docker-compose --version
+
+    - name: Pull Chrome image for Selenoid
+      run: docker pull selenoid/vnc:chrome_124.0
+
+    - name: Run tests
+      run: docker-compose up --build --exit-code-from autotests
+
+    - name: Shut down
+      if: always()
+      run: docker-compose down -v

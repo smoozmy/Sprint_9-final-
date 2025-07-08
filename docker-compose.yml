@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+
+  selenoid:
+    image: aerokube/selenoid
+    container_name: selenoid
+    ports:
+      - "4444:4444"
+    volumes:
+      - "./config.json:/etc/selenoid/config.json"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - selenoid
+    command: ["-conf", "/etc/selenoid/config.json", "-container-network", "selenoid"]
+
+  selenoid-ui:
+    image: aerokube/selenoid-ui:latest
+    container_name: selenoid-ui
+    depends_on:
+      - selenoid
+    ports:
+      - "8081:8080"
+    networks:
+      - selenoid
+    command: ["--selenoid-uri", "http://selenoid:4444"]
+
+  autotests:
+    build: .
+    container_name: autotests
+    volumes:
+      - .:/app
+    networks:
+      - selenoid
+    depends_on:
+      - selenoid
+    environment:
+      - IN_CONTAINER=true
+    command: ["pytest", "--alluredir=allure-results"]
+    tty: true
+
+networks:
+  selenoid:
+    name: selenoid
